@@ -12,9 +12,16 @@
     <script>
         async function fetchSalario() {
             try {
-                const response = await fetch('https://api.hgbrasil.com/finance?key=9db8c7e1&format=json');
-                const data = await response.json();
-                document.getElementById('salario').innerText = `R$ ${data.results.currencies.BRL.buy.toFixed(2)}`;
+                // Usando a API oficial do governo para pegar o valor do salário mínimo
+                const response = await fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=csv');
+                const data = await response.text();
+
+                // Pega o último valor do salário mínimo
+                const lines = data.split('\n');
+                const lastValue = lines[lines.length - 2]; // Pega a última linha (último valor)
+                const salary = lastValue.split(',')[1]; // Extrai o valor do salário
+
+                document.getElementById('salario').innerText = `R$ ${parseFloat(salary).toFixed(2)}`;
             } catch (error) {
                 document.getElementById('salario').innerText = 'Erro ao carregar o valor.';
             }
