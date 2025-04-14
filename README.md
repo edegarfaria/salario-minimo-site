@@ -4,6 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salário Mínimo Atual</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    strong {
+      color: #006600;
+    }
+
+    a {
+      color: #003399;
+    }
+  </style>
 </head>
 <body>
   <h1>Salário Mínimo Atual no Brasil</h1>
